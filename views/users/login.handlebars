@@ -1,0 +1,14 @@
+{{#each erros}}
+<div class="alert alert-danger">{{message}}</div>
+{{else}}
+{{/each}}
+<div class="div-md-centralize">
+    <h3 style="text-align:center">Login</h3>
+    <form action="/users/login" method="POST">
+        <label for="cpf">CPF</label>
+        <input type="cpf" name="cpf" class="form-control" required>
+        <label for="password">Senha</label>
+        <input type="password" name="password" class="form-control" minlength=6 required>
+        <button type="submit" class="btn btn-block btn-info mt-3">Entrar</button>
+    </form>
+</div>

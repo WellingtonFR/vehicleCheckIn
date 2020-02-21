@@ -1,0 +1,29 @@
+{{#each erros}}
+<div class="alert alert-danger">{{message}}</div>
+{{else}}
+{{/each}}
+
+<div class="div-md-centralize">
+    <h3 style="text-align:center">Novo cadastro</h3>
+    <div class="text-center"><small style="color: #666;">Insira abaixo suas informações para criar uma
+            nova
+            conta</small></div>
+    <hr>
+    <div class=" mb-4"></div>
+    <form action="/users/register" method="POST">
+        <label for="name">Nome completo</label>
+        <input type="text" name="name" class="form-control mb-2" value="{{formData.name}}" required>
+        <label for="cpf">CPF</label>
+        <input type="cpf" name="cpf" class="form-control mb-2" value="{{formData.email}}" required>
+        <label for="telephone">Telefone</label>
+        <input type="telephone" name="telephone" class="form-control mb-2" value="{{formData.email}}" required>
+        <label for="password">Senha</label>
+        <input type="password" name="password" class="form-control" maxlength="15" minlength="6" required>
+        <small style="color: #666; font-size:11px;">A senha deve ter de 6 a 15 caracteres</small>
+        <div class="mb-2"></div>
+        <label for=" passwordConfirmation" class="mt-2">Confirme a senha</label>
+        <input type="password" name="passwordConfirmation" class="form-control mb-2" maxlength="15" minlength="6"
+            required>
+        <button type="submit" class="btn btn-block btn-info mt-5">Cadastrar</button>
+    </form>
+</div>
