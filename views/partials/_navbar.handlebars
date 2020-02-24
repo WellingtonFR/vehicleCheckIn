@@ -6,23 +6,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            {{#if user}}
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            {{#if user}}
-            <li class="nav-item">
-                <a class="nav-link" href="/">Cadastro</a>
-            </li>
         </ul>
         <div class="my-2 my-lg-0">
-            <p class="username-navbar" id="userName">
-
-            </p>
+            <div class="username-navbar inline mr-2" id="userName">
+                {{#if user.name}}
+                <script>
+                    let nomeDoUsuario = "{{ user.name }}"
+                    let arrayNome = nomeDoUsuario.split(" ")
+                    let campoAPreencher = document.getElementById("userName")
+                    campoAPreencher.innerText = arrayNome[0]
+                </script>
+                {{/if}}
+            </div>
             <a class="btn btn-info mr-sm-2" href="/users/logout">Sair</a>
         </div>
         {{else}}
         <li class="nav-item">
-            <a class="nav-link" href="/">Entrar</a>
+            <a class="nav-link" href="/users/login">Entrar</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/users/register">Cadastrar-se</a>
@@ -31,11 +35,3 @@
         </ul>
     </div>
 </nav>
-
-<script>
-    var name = "{{ user.name }}"
-    var stringName = name.toString()
-    var firstName = stringName.split("").slice(0, 1)
-    document.getElementById("userName").innerText(firstName)
-    console.log(firstName)
-</script>

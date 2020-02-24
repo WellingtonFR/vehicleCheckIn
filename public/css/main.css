@@ -5,7 +5,7 @@ body {
 }
 
 a {
-    color: #333;
+    color: #666;
     text-decoration: none;
 }
 
@@ -14,10 +14,24 @@ a:hover {
     text-decoration: none;
 }
 
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+#userName {
+    color: #FFF;
+    text-transform: uppercase;
+}
+
 .div-md-centralize {
     width: 80%;
     margin: 0 auto;
     margin-top: 5%;
+    margin-bottom: 5%;
     padding: 10px;
     border-radius: 10px;
     background-color: #fff;

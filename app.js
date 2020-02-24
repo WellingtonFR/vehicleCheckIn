@@ -74,7 +74,7 @@ mongoose.connect(db.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true 
     })
 
 //routes
-app.get("/", (req, res) => {
+app.get("/", ensureLoggedIn("/users/login"), (req, res) => {
     res.render("index")
 })
 

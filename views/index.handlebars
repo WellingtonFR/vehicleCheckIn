@@ -1,3 +1,26 @@
+{{#each erros}}
+<div class="alert alert-danger">{{message}}</div>
+{{else}}
+{{/each}}
+
 <div class="div-md-centralize">
-    Olá motorista
+    Olá motorista, para utilização do sistema <b>é necessário ler o QR code</b> que está localizado ao lado das docas.
+    <br><br>
+    Ele é parecido com este
+    <img src="/img/QRCodeExample.png" alt="Exemplo de QR code">
+    <br><br>
+    Se não tiver o aplicativo para leitura você pode baixá-lo nos links abaixo:
+    <br><br>
+    <a href="https://apps.apple.com/br/app/qr-reader-for-iphone/id368494609" target="blank">
+        <img src="./img/appleIcon.png" alt="IOS loja de aplicativos">
+        <b>IOS</b>
+    </a>
+    <br><br>
+    <a href="https://play.google.com/store/apps/details?id=tw.mobileapp.qrcode.banner&hl=pt_BR" target="blank">
+        <img src="./img/playStoreIcon.png" alt="Google loja de aplicativos">
+        <b>ANDROID</b>
+    </a>
+    <br><br>
+    Após a leitura do QR code você será direcionado para a página para confirmação de que chegou a doca.
+    <br><br>
 </div>
