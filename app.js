@@ -16,6 +16,7 @@ require("./models/vehicleData")
 require("./models/users")
 const users = require("./routes/users")
 const vehicleData = require("./routes/vehicleData")
+const admin = require("./routes/admin")
 
 //constants
 const PORT = process.env.PORT || 8081
@@ -85,5 +86,6 @@ app.get("/404", (req, res) => {
 
 app.use("/users", users)
 app.use("/vehicleData", vehicleData)
+app.use("/admin", admin)
 
 app.listen(PORT)

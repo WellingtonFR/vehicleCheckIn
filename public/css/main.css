@@ -28,14 +28,29 @@ a:hover {
 }
 
 .div-md-centralize {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    margin-top: 5%;
     margin-bottom: 5%;
     padding: 10px;
     border-radius: 10px;
     background-color: #fff;
     color: #000;
+}
+
+.div-lg-centralize {
+    margin-bottom: 5%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #000;
+}
+
+#div-filter-admin {
+    
+}
+
+#div-table-admin {
+    
 }
 
 #subirTopo {

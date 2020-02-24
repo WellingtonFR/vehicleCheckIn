@@ -4,6 +4,10 @@ const Schema = mongoose.Schema
 const VehicleData = new Schema({
 
     date: {
+        type: Date,
+        required: true
+    },
+    name: {
         type: String,
         required: true
     },
@@ -15,7 +19,7 @@ const VehicleData = new Schema({
         type: String,
         required: true
     },
-    user: {
+    phone: {
         type: String,
         required: true
     }

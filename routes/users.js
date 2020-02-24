@@ -74,7 +74,8 @@ router.post("/register", (req, res) => {
             } else {
                 const newUser = new User({
                     name: req.body.name,
-                    telephone: req.body.telephone,
+                    phone: req.body.phone,
+                    vehiclePlate: req.body.vehiclePlate,
                     cpf: req.body.cpf,
                     password: req.body.password
                 })

@@ -4,6 +4,13 @@
 {{/each}}
 <div class="div-md-centralize">
     <h3 style="text-align:center">Login</h3>
+    <div class="mb-3 text-center">
+        <small>
+            Não possui conta ?
+            <a href="/users/register">Cadastrar-se</a>
+        </small>
+    </div>
+    <hr>
     <form action="/users/login" method="POST">
         <label for="cpf">CPF</label>
         <input type="cpf" name="cpf" class="form-control" required>

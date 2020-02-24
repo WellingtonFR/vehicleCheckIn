@@ -6,16 +6,23 @@
     <div class="form-group">
         <form action="/vehicleData" method="post">
             <h5 class="h5 text-center">Dados para liberação</h5>
-            <div class="text-center"><small style="color: #666;">Caso haja divergência de dados conferir no cadastro as
-                    informações do veículo</small></div>
             <hr>
+            <div class="mt-4">
+                <small style="color: #666;">
+                    Confira as informações e <b>clique em confirmar dados</b> para avisar que o veículo já está na doca.
+                    <br>
+                    <b>Se houver divergência</b> de dados conferir no cadastro as informações do veículo.
+                </small>
+            </div>
+
             <div class=" mb-4"></div>
             <label for="name">Nome do motorista</label>
-            <input type="text" name="name" value="{{user.name}}" class="form-control mb-2" required disabled>
+            <input type="text" name="name" value="{{user.name}}" class="form-control mb-2" required readonly>
             <label for="vehiclePlate">Placa do veículo</label>
-            <input type="text" name="vehiclePlate" class="form-control mb-2" required>
+            <input type="text" name="vehiclePlate" value="{{viewData.vehiclePlate}}" class="form-control mb-2" required
+                readonly>
             <label for="dock">Doca</label>
-            <input type="text" name="dock" value="{{viewData.dock}}" class="form-control mb-2" required disabled>
+            <input type="text" name="dock" value="{{viewData.dock}}" class="form-control mb-2" required readonly>
             <input type="submit" value="Confirmar dados" class="btn btn-info btn-block">
         </form>
     </div>

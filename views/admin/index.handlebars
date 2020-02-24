@@ -1,0 +1,98 @@
+<div class="div-lg-centralize">
+    <h5>Docas confirmadas</h5>
+    <hr>
+    <div class="row">
+        <div class="col col-lg-2" id="div-filter-admin">
+            <h6 class="mb-4">Filtros</h6>
+
+            <a href="/admin" id="btnFilterClear" class="btn btn-block btn-dark mb-2">Limpar</a>
+            <button id="btnFilterToday" class="btn btn-info btn-block mb-4" onclick="btnToday()">Hoje</button>
+
+            <form action="/admin/filter" method="get" id="form-filter">
+                <label for="initialDate">Data inicial</label>
+                <input type="text" name="initialDate" id="initialDate" class="form-control mb-2 dateMask"
+                    onfocus="calendar('#initialDate')">
+                <label for="finalDate">Data final</label>
+                <input type="text" name="finalDate" class="form-control mb-4 dateMask" id="finalDate"
+                    onfocus="calendar('#finalDate')">
+                <input type="submit" value="Filtrar" class="btn btn-info btn-block">
+            </form>
+
+        </div>
+        {{#if viewData}}
+        <div class="col" id="div-table-admin">
+            <table class="table table-hover">
+                <tr>
+                    <th>Data</th>
+                    <th class="text-center">Hora</th>
+                    <th class="text-center">Doca</th>
+                    <th>Nome</th>
+                    <th class="text-center">Placa</th>
+                    <th>Telefone</th>
+                </tr>
+                {{#each viewData}}
+                <tr>
+                    <td>{{day}}</td>
+                    <td class="text-center">{{hour}}</td>
+                    <td class="text-center">{{dock}}</td>
+                    <td>{{name}}</td>
+                    <td class="text-center">{{vehiclePlate}}</td>
+                    <td>{{phone}}</td>
+                </tr>
+                {{/each}}
+            </table>
+            {{else}}
+            <h5>Não há dados para exibir</h5>
+            {{/if}}
+        </div>
+    </div>
+
+</div>
+
+<a id="subirTopo">
+    ^ <br> Subir
+</a>
+
+<script>
+    //botão subir ao topo
+
+    jQuery(document).ready(function () {
+
+        jQuery("#subirTopo").hide();
+
+        jQuery('a#subirTopo').click(function () {
+            jQuery('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+
+        jQuery(window).scroll(function () {
+            if (jQuery(this).scrollTop() > 0) {
+                jQuery('#subirTopo').fadeIn();
+            } else {
+                jQuery('#subirTopo').fadeOut();
+            }
+        });
+    });
+
+
+    function btnToday() {
+        let date = new Date();
+        let day = (date.getDate()).toString()
+        let month = (date.getMonth() + 1).toString()
+        let year = (date.getFullYear()).toString()
+        if (month.length == 1) {
+            month = "0" + month
+        }
+        if (day.length == 1) {
+            day = "0" + day
+        }
+        let formatedDate = day + "/" + month + "/" + year
+        console.log(formatedDate)
+        $("#initialDate").val(formatedDate)
+        $("#finalDate").val(formatedDate)
+        $("#form-filter").submit()
+    }
+
+</script>

@@ -6,7 +6,7 @@ const User = new Schema({
         type: String,
         required: true
     },
-    telephone: {
+    phone: {
         type: String,
         required: true
     },
@@ -14,9 +14,17 @@ const User = new Schema({
         type: String,
         required: true
     },
+    vehiclePlate: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
+    },
+    isAdmin: {
+        type: Boolean,
+        default: 0
     }
 }, { timestamps: true })
 
