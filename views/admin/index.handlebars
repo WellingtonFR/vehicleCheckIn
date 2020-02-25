@@ -2,7 +2,7 @@
     <h5>Docas confirmadas</h5>
     <hr>
     <div class="row">
-        <div class="col col-lg-2" id="div-filter-admin">
+        <div class="col col-md-2" id="div-filter-admin">
             <h6 class="mb-4">Filtros</h6>
 
             <a href="/admin" id="btnFilterClear" class="btn btn-block btn-dark mb-2">Limpar</a>
@@ -20,7 +20,7 @@
 
         </div>
         {{#if viewData}}
-        <div class="col" id="div-table-admin">
+        <div class="col col-md-10" id="div-table-admin">
             <table class="table table-hover">
                 <tr>
                     <th>Data</th>
@@ -29,6 +29,7 @@
                     <th>Nome</th>
                     <th class="text-center">Placa</th>
                     <th>Telefone</th>
+                    <th class="text-center">Checar</th>
                 </tr>
                 {{#each viewData}}
                 <tr>
@@ -38,6 +39,9 @@
                     <td>{{name}}</td>
                     <td class="text-center">{{vehiclePlate}}</td>
                     <td>{{phone}}</td>
+                    <td class="text-center">
+                        <input type="checkbox" name="confirm" id="confirmVehicle" value="{{id}}">
+                    </td>
                 </tr>
                 {{/each}}
             </table>
@@ -89,9 +93,7 @@
             day = "0" + day
         }
         let formatedDate = day + "/" + month + "/" + year
-        console.log(formatedDate)
         $("#initialDate").val(formatedDate)
-        $("#finalDate").val(formatedDate)
         $("#form-filter").submit()
     }
 

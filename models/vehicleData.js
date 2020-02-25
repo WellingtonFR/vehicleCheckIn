@@ -22,6 +22,10 @@ const VehicleData = new Schema({
     phone: {
         type: String,
         required: true
+    },
+    isChecked: {
+        type: Boolean,
+        required: true
     }
 }, { timestamps: true })
 
