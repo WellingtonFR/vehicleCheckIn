@@ -1,6 +1,5 @@
 {{#each erros}}
 <div class="alert alert-danger">{{message}}</div>
-{{else}}
 {{/each}}
 
 <div class="div-md-centralize">
@@ -14,14 +13,16 @@
     <div class=" mb-4"></div>
     <form action="/users/register" method="POST">
         <label for="name">Nome completo</label>
-        <input type="text" name="name" class="form-control mb-2" value="{{formData.name}}" required>
+        <input type="text" name="name" class="form-control mb-2" value="{{viewData.name}}" required>
         <label for="cpf">CPF</label>
-        <input type="cpf" name="cpf" class="form-control mb-2" value="{{formData.email}}" required>
+        <input type="text" name="cpf" class="form-control mb-2 cpf" value="{{viewData.cpf}}"
+            placeholder="000.000.000-00" pattern="/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/" required>
         <label for="phone">Telefone</label>
-        <input type="phone" name="phone" class="form-control mb-2" value="{{formData.email}}" required>
+        <input type="text" name="phone" class="form-control mb-2 phone" value="{{viewData.phone}}"
+            placeholder="(00) 00000-0000" required>
         <label for="vehiclePlate">Placa do veículo</label>
-        <input type="vehiclePlace" name="vehiclePlate" class="form-control mb-2" value="{{formData.vehiclePlate}}"
-            required>
+        <input type="text" name="vehiclePlate" class="form-control mb-2 vehiclePlate" value="{{viewData.vehiclePlate}}"
+            pattern="[A-Z]{3}[-][0-9]{4}" placeholder="AAA-1234" required>
         <label for="password">Senha</label>
         <input type="password" name="password" class="form-control" maxlength="15" minlength="6" required>
         <small style="color: #666; font-size:11px;">A senha deve ter de 6 a 15 caracteres</small>

@@ -57,6 +57,18 @@ router.post("/register", (req, res) => {
         erros.push({ message: "Preencher a senha" })
     }
 
+    if (!req.body.cpf || typeof req.body.cpf == undefined || req.body.cpf == null) {
+        erros.push({ message: "Preencher o CPF" })
+    }
+
+    if (!req.body.phone || typeof req.body.phone == undefined || req.body.phone == null) {
+        erros.push({ message: "Preencher o telefone" })
+    }
+
+    if (!req.body.vehiclePlate || typeof req.body.vehiclePlate == undefined || req.body.vehiclePlate == null) {
+        erros.push({ message: "Preencher a placa do veículo" })
+    }
+
     if (req.body.password.length < 6 || req.body.password.length > 15) {
         erros.push({ message: "A senha deve conter entre 6 e 15 caracteres" })
     } else if (req.body.password != req.body.passwordConfirmation) {
@@ -64,12 +76,12 @@ router.post("/register", (req, res) => {
     }
 
     if (erros.length > 0) {
-        var formData = { name: req.body.name, cpf: req.body.cpf }
-        res.render("users/register", { erros: erros, formData: formData })
+        let viewData = { name: req.body.name, cpf: req.body.cpf, vehiclePlate: vehiclePlate }
+        res.render("users/register", { erros: erros, viewData: viewData })
     } else {
         User.findOne({ cpf: req.body.cpf }).then((user) => {
             if (user) {
-                req.flash("error_msg", "Já existe um usuário cadastrado com esse cpf")
+                req.flash("error_msg", "Já existe um usuário cadastrado com esse CPF")
                 res.redirect("/users/register")
             } else {
                 const newUser = new User({

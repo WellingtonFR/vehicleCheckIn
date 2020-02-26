@@ -45,7 +45,8 @@ router.post("/", ensureLoggedIn("/users/login"), (req, res) => {
             name: name,
             dock: dock,
             vehiclePlate: vehiclePlate,
-            phone: phone
+            phone: phone,
+            isChecked: false
         })
 
         newDataInsertion.save().then(() => {

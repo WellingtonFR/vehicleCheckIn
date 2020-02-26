@@ -28,7 +28,6 @@
                     <th>Nome</th>
                     <th class="text-center">Placa</th>
                     <th>Telefone</th>
-                    <th class="text-center">Opções</th>
                 </tr>
                 {{#each viewData}}
                 <tr>
@@ -38,12 +37,6 @@
                     <td>{{name}}</td>
                     <td class="text-center">{{vehiclePlate}}</td>
                     <td>{{phone}}</td>
-                    <td class="text-center">
-                        <form action="/admin/confirmVehicle" method="POST" class="form-confirmVehicle">
-                            <input type="hidden" name="id" value="{{id}}">
-                            <input type="submit" class="btn btn-sm btn-info" value="Confirmar">
-                        </form>
-                    </td>
                     {{else}}
                     <td colspan="7">
                         <h5>Não há dados para exibir</h5>
