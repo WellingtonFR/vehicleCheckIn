@@ -1,8 +1,11 @@
 <div class="div-lg-centralize">
     <h5>Docas confirmadas</h5>
     <hr>
+
     <div class="row">
-        <div class="col col-md-2" id="div-filter-admin">
+
+        <div class="col col-lg-2">
+
             <h6 class="mb-4">Filtros</h6>
 
             <button id="btnFilterToday" class="btn btn-info btn-block mb-2" onclick="btnToday()">Hoje</button>
@@ -17,36 +20,38 @@
                 <input type="submit" value="Filtrar" class="btn btn-info btn-block mb-2">
             </form>
             <a href="/admin" id="btnFilterClear" class="btn btn-block btn-dark mb-2">Limpar Filtros</a>
-
         </div>
-        <div class="col col-md-10" id="div-table-admin">
-            <table class="table table-hover">
-                <tr>
-                    <th>Data</th>
-                    <th class="text-center">Hora</th>
-                    <th class="text-center">Doca</th>
-                    <th>Nome</th>
-                    <th class="text-center">Placa</th>
-                    <th>Telefone</th>
-                </tr>
-                {{#each viewData}}
-                <tr>
-                    <td>{{day}}</td>
-                    <td class="text-center">{{hour}}</td>
-                    <td class="text-center">{{dock}}</td>
-                    <td>{{name}}</td>
-                    <td class="text-center">{{vehiclePlate}}</td>
-                    <td>{{phone}}</td>
-                    {{else}}
-                    <td colspan="7">
-                        <h5>Não há dados para exibir</h5>
-                    </td>
-                </tr>
-                {{/each}}
+        <div class="col">
+            <table class="table table-responsive table-hover" id="table-admin">
+                <thead>
+                    <tr>
+                        <th scope="col">Data</th>
+                        <th scope="col" class="text-center">Hora</th>
+                        <th scope="col" class="text-center">Doca</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col" class="text-center">Placa</th>
+                        <th scope="col">Telefone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each viewData}}
+                    <tr>
+                        <td>{{day}}</td>
+                        <td class="text-center">{{hour}}</td>
+                        <td class="text-center">{{dock}}</td>
+                        <td>{{name}}</td>
+                        <td class="text-center">{{vehiclePlate}}</td>
+                        <td>{{phone}}</td>
+                        {{else}}
+                        <td colspan="7">
+                            <h5>Não há dados para exibir</h5>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
             </table>
         </div>
     </div>
-
 </div>
 
 <a id="subirTopo">

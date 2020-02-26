@@ -49,8 +49,8 @@ a:hover {
     
 }
 
-#div-table-admin {
-    
+#table-admin td{
+white-space: nowrap;
 }
 
 #subirTopo {
